@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="assets/css/adminCustom.css">
 
     <%-- Head children page --%>
+    <%-- Admin manager product header --%>
     <asp:ContentPlaceHolder ID="AdminPageHead" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -560,22 +561,22 @@
                 <div class="container">
 
                     <%-- Admin home dashboard --%>
-                    <asp:ContentPlaceHolder ID="AdminPageContent" runat="server">
+                    <asp:ContentPlaceHolder ID="AdminDashBoardPageContent" runat="server">
                     </asp:ContentPlaceHolder>
 
-                    <%-- Admin product view --%>
+                    <%-- Admin list product view page --%>
                     <asp:ContentPlaceHolder ID="AdminProductPageContent" runat="server">
                     </asp:ContentPlaceHolder>
 
-                    <%-- Admin add product form --%>
+                    <%-- Admin add product form page --%>
                     <asp:ContentPlaceHolder ID="AdminAddProductContent" runat="server">
                     </asp:ContentPlaceHolder>
 
-                    <%-- Admin update product form --%>
+                    <%-- Admin update product form page --%>
                     <asp:ContentPlaceHolder ID="AdminUpdateProductContent" runat="server">
                     </asp:ContentPlaceHolder>
 
-                    <%-- Admin delete product view --%>
+                    <%-- Admin delete product view page --%>
                     <asp:ContentPlaceHolder ID="AdminDeleteProductContent" runat="server">
                     </asp:ContentPlaceHolder>
 
@@ -613,8 +614,11 @@
     </script>
 
     <%-- Script Admin change nav --%>
+    <!-- Script Admin dashboard page -->
+    <asp:ContentPlaceHolder ID="AdminDashBoardPageScript" runat="server"></asp:ContentPlaceHolder>
+
+    <!-- Script Admin product manager page -->
     <asp:ContentPlaceHolder ID="AdminProductScript" runat="server"></asp:ContentPlaceHolder>
-    <asp:ContentPlaceHolder ID="AdminPageScript" runat="server"></asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="AdminAddProductScript" runat="server"></asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="AdminUpdateProductScript" runat="server"></asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="AdminDeleteProductScript" runat="server"></asp:ContentPlaceHolder>

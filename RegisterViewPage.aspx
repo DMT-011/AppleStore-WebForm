@@ -1,4 +1,4 @@
-﻿q<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RegisterViewPage.aspx.cs" Inherits="RegisterViewPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RegisterViewPage.aspx.cs" Inherits="RegisterViewPage" %>
 
 <!DOCTYPE html>
 

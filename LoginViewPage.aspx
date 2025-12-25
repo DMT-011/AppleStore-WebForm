@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LoginViewPage.aspx.cs" Inherits="LoginVIewPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LoginViewPage.aspx.cs" Inherits="LoginViewPage" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Appl Store - Đăng nhập</title>
+    <title>Apple Store - Đăng nhập</title>
     <link href="assets/css/loginStyle.css" rel="stylesheet" />
 
     <!-- Favicon -->
@@ -26,7 +26,7 @@
                 <p>Đăng nhập để khám phá những sản phẩm tuyệt vời</p>
                 <div id="loginForm">
                     <div class="form-group">
-                        <input ID="userEmailInput" type="text" runat="server" placeholder="Nhập email của bạn" required="required">
+                        <input id="userNameInput" type="text" runat="server" placeholder="Nhập tên đăng nhập của bạn" required="required">
                     </div>
                     <div class="form-group">
                         <input type="password" id="passwordInput" runat="server" placeholder="Mật khẩu" required="required">

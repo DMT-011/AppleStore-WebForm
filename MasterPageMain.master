@@ -42,9 +42,14 @@
     <asp:ContentPlaceHolder ID="DetailProductViewPageHead" runat="server">
     </asp:ContentPlaceHolder>
 
+    <asp:ContentPlaceHolder ID="OrderViewPageHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="app">
             <!-- Header -->
             <header id="header">
@@ -66,17 +71,39 @@
                                 <div class="header-menu-right">
                                     <nav>
                                         <ul class="controls-user">
-                                            <li class="controls-item">
+
+                                            <%-- Phần dành cho KHÁCH (Chưa đăng nhập) --%>
+                                            <li id="liLogin" runat="server" class="controls-item">
                                                 <a href="LoginViewPage.aspx" class="controls-link separate">Đăng nhập</a>
                                             </li>
 
-                                            <li class="controls-item separate">
+                                            <li id="liRegister" runat="server" class="controls-item separate">
                                                 <a href="RegisterViewPage.aspx" class="controls-link">Đăng ký</a>
                                             </li>
 
-                                            <li class="controls-item">
-                                                <a href="#" class="controls-link">Quên mật khẩu?</a>
+
+                                            <%-- Phần dành cho NGƯỜI DÙNG (Đã đăng nhập) --%>
+                                            <%-- Visible="false" để mặc định ẩn đi, chỉ hiện khi có Session --%>
+                                            <li id="liUserInfo" runat="server" visible="false" class="controls-item separate">
+                                                <span class="controls-link" style="color: #fff; cursor: default;">Xin chào,
+                                                    <asp:Label ID="lblFullName" runat="server" Text="User" Font-Bold="true"></asp:Label>
+                                                </span>
                                             </li>
+
+                                            <li id="liOrder" runat="server" visible="false" class="controls-item separate">
+                                                <%-- Dùng LinkButton để xử lý sự kiện click phía Server --%>
+                                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="controls-link" OnClick="btnOrder_Click">
+                                                Đơn hàng của tui
+                                                </asp:LinkButton>
+                                             </li>
+
+                                            <li id="liLogout" runat="server" visible="false" class="controls-item">
+                                                <%-- Dùng LinkButton để xử lý sự kiện click phía Server --%>
+                                                <asp:LinkButton ID="btnLogout" runat="server" CssClass="controls-link" OnClick="btnLogout_Click">
+                                                    Đăng xuất
+                                                </asp:LinkButton>
+                                            </li>
+
                                         </ul>
                                     </nav>
                                 </div>
@@ -186,71 +213,68 @@
 
                                 <!-- Cart -->
                                 <div class="shopping-cart">
-                                    <p class="cart-text">
-                                        <i class="cart-icon bi bi-cart-fill"></i>
-                                        Giỏ hàng
-                                         <span class="cart-quantity">2</span>
-                                    </p>
+                                    <%-- GIỮ THẺ NÀY NẰM NGOÀI UPDATEPANEL --%>
 
-                                    <!-- List product in cart -->
-                                    <ul class="cart-product-list">
-                                        <li class="cart-product-item">
-                                            <a href="#" class="cart-product-link">
-                                                <div class="cart-product-img">
-                                                    <img src="assets/img/product_img/iphone16/iphone-16-128gb-black.png" alt="">
-                                                </div>
+                                    <asp:UpdatePanel ID="upHeaderCart" runat="server" UpdateMode="Always">
+                                        <ContentTemplate>
 
-                                                <div class="cart-product-content">
-                                                    <span class="cart-product-quantity">Số lượng mua: 
-                                                    <span class="cart-product-number">2</span>
-                                                    </span>
-
-                                                    <span class="cart-product-name">iphone 16 plus 256GB black</span>
-                                                    <span class="cart-product-price-wrap">Đơn giá : 
-                                                     <span class="cart-product-price">28.590.000<sup>đ</sup></span>
-                                                    </span>
-                                                </div>
-
+                                            <%-- Nội dung bên trong thì bọc lại để update --%>
+                                            <a style="text-decoration: none" class="cart-text" href="/CartViewPage.aspx">
+                                                <i class="cart-icon bi bi-cart-fill"></i>
+                                                Giỏ hàng
+               
+                                                <span class="cart-quantity">
+                                                    <asp:Label ID="lblTotalQuantity" runat="server" Text="0"></asp:Label>
+                                                </span>
                                             </a>
-                                        </li>
 
-                                        <li class="cart-product-item">
-                                            <a href="#" class="cart-product-link">
-                                                <div class="cart-product-img">
-                                                    <img src="assets/img/product_img/iphone16/iphone-16-128gb-black.png" alt="">
-                                                </div>
+                                            <ul class="cart-product-list">
+                                                <asp:Repeater ID="rptHeaderCart" runat="server">
+                                                    <ItemTemplate>
+                                                        <li class="cart-product-item">
+                                                            <a href="#" class="cart-product-link">
+                                                                <div class="cart-product-img">
+                                                                    <img src="<%# GetImageSrc(Eval("Product.Images")) %>" alt="">
+                                                                </div>
 
-                                                <div class="cart-product-content">
-                                                    <span class="cart-product-quantity">Số lượng mua: 
-                                                    <span class="cart-product-number">5</span>
+                                                                <div class="cart-product-content">
+                                                                    <span class="cart-product-quantity">Số lượng mua: 
+                                       
+                                                                        <span class="cart-product-number"><%# Eval("Quantity") %></span>
+                                                                    </span>
+
+                                                                    <span class="cart-product-name"><%# Eval("Product.ProductName") %></span>
+                                                                    <span class="cart-product-price-wrap">Đơn giá : 
+                                       
+                                                                        <span class="cart-product-price">
+                                                                            <%# String.Format("{0:N0}", Eval("Price")).Replace(",", ".") %><sup>đ</sup>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </ul>
+
+                                            <div class="total-price-block">
+                                                <p class="total-price-text">
+                                                    <span>Tổng</span>
+                                                    <span class="total-price-product">
+                                                        <asp:Label ID="lblTotalAmount" runat="server" Text="0"></asp:Label><sup>đ</sup>
                                                     </span>
+                                                </p>
 
-                                                    <span class="cart-product-name">iphone 16 plus 256GB black</span>
-                                                    <span class="cart-product-price-wrap">Đơn giá : 
-                                                    <span class="cart-product-price">28.590.000<sup>đ</sup></span>
-                                                    </span>
+                                                <div class="payment-product">
+                                                    <a href="CartViewPage.aspx" class="payment-btn" style="text-decoration: none; color: white; display: flex; align-items: center; justify-content: center;">Thanh toán
+                       
+                                                        <i class="bi bi-chevron-right"></i>
+                                                    </a>
                                                 </div>
+                                            </div>
 
-                                            </a>
-                                        </li>
-
-                                    </ul>
-
-                                    <!-- Total price product area -->
-                                    <div class="total-price-block">
-                                        <p class="total-price-text">
-                                            <span>Tổng</span>
-                                            <span class="total-price-product">28.590.000<sup>đ</sup></span>
-                                        </p>
-
-                                        <div class="payment-product">
-                                            <button class="payment-btn">
-                                                Thanh toán
-                                             <i class="bi bi-chevron-right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
 
                                 </div>
 
@@ -274,8 +298,11 @@
             <asp:ContentPlaceHolder ID="CartViewPageContent" runat="server">
             </asp:ContentPlaceHolder>
 
+            <!-- Order page content -->
+            <asp:ContentPlaceHolder ID="OrderViewPageContent" runat="server">
+            </asp:ContentPlaceHolder>
+
             <asp:Repeater ID="Repeater1" runat="server">
-                
             </asp:Repeater>
 
 

@@ -6,14 +6,14 @@
 </asp:Content>
 
 <%-- Body --%>
-<asp:Content ID="Content2" ContentPlaceHolderID="AdminPageContent" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="AdminDashBoardPageContent" Runat="Server">
     <h3>Để cho bớt trống chua co cc gi </h3>
 </asp:Content>
 
 
 
 <%-- Script --%>
-<asp:Content ID="Content3" ContentPlaceHolderID="AdminPageScript" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="AdminDashBoardPageScript" Runat="Server">
     <script>
         const navItemDashboard = document.querySelector(".nav-item-dashboard");
 

@@ -56,53 +56,66 @@
 
                         <!-- Product desc area -->
                         <div class="col-7">
-                            <asp:Repeater ID="RenderDetailBlock" runat="server">
-                                <ItemTemplate>
-                                    <div class="product-wrapper">
-                                        <div class="product-description">
-                                            <h3 class="product-title-name"><%# Eval("ProductName") %></h3>
-                                        </div>
-                                        <div class="review-box">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                        </div>
-                                        <div class="product-condition">
-                                            <p>
-                                                Sản phẩm có sẵn:
-                                            <span class="product-condition-quantity"><%#Eval("ProductQuantity") %></span>
-                                            </p>
-                                            <p>
-                                                Tình trạng:
-                                             <span class="product-condition-text">New</span>
-                                            </p>
-                                        </div>
-                                        <div class="product-price-area">
-                                            <p class="product-price-new">
-                                                <%# String.Format("{0:N0}",Eval("ProductPromotionPrice")).Replace(",", ".") %><sup>đ</sup>
-                                            </p>
-                                            <p class="product-price-old">
-                                                <%# String.Format("{0:N0}",Eval("ProductPrice")).Replace(",", ".") %><sup>đ</sup>
-                                            </p>
-                                        </div>
-                                        <div class="product-desc-text">
-                                            <p><%# Server.HtmlDecode(Eval("ProductDesc").ToString()) %></p>
-                                        </div>
-                                        <div class="product-select-quantity">
-                                            <span>Số lượng</span>
-                                            <input type="number" value="1" min="1" max="<%# Eval("ProductQuantity") %>" name="productQuantity" id="numberProduct">
-                                        </div>
-                                        <div class="product-controls">
-                                            <button class="buy-product-btn btn btn-dark">Mua ngay</button>
-                                            <button class="add-product-cart-btn btn btn-outline-dark">Thêm vào giỏ hàng</button>
-                                        </div>
-                                    </div>
 
+                            <asp:UpdatePanel ID="UpdatePanelCart" runat="server">
+                                <ContentTemplate>
+                                    <asp:Repeater ID="RenderDetailBlock" runat="server" OnItemCommand="RenderDetailBlock_ItemCommand">
+                                        <ItemTemplate>
+                                            <div class="product-wrapper">
+                                                <div class="product-description">
+                                                    <h3 class="product-title-name"><%# Eval("ProductName") %></h3>
+                                                </div>
+                                                <div class="review-box">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                                <div class="product-condition">
+                                                    <p>
+                                                        Sản phẩm có sẵn:
+                <span class="product-condition-quantity"><%#Eval("ProductQuantity") %></span>
+                                                    </p>
+                                                    <p>
+                                                        Tình trạng:
+                 <span class="product-condition-text">New</span>
+                                                    </p>
+                                                </div>
+                                                <div class="product-price-area">
+                                                    <p class="product-price-new">
+                                                        <%# String.Format("{0:N0}",Eval("ProductPromotionPrice")).Replace(",", ".") %><sup>đ</sup>
+                                                    </p>
+                                                    <p class="product-price-old">
+                                                        <%# String.Format("{0:N0}",Eval("ProductPrice")).Replace(",", ".") %><sup>đ</sup>
+                                                    </p>
+                                                </div>
+                                                <div class="product-desc-text">
+                                                    <p><%# Server.HtmlDecode(Eval("ProductDesc").ToString()) %></p>
+                                                </div>
 
-                                </ItemTemplate>
-                            </asp:Repeater>
+                                                <div class="product-select-quantity">
+                                                    <span>Số lượng</span>
+                                                    <asp:TextBox ID="txtQuantity" runat="server" TextMode="Number" Text="1" min="1" max='<%# Eval("ProductQuantity") %>' CssClass="form-control" Style="width: 80px; display: inline-block;"></asp:TextBox>
+                                                </div>
+
+                                                <div class="product-controls">
+                                                    <button class="buy-product-btn btn btn-dark">Mua ngay</button>
+
+                                                    <asp:LinkButton ID="btnAddToCart" runat="server"
+                                                        CssClass="add-product-cart-btn btn btn-outline-dark"
+                                                        CommandName="AddToCart"
+                                                        CommandArgument='<%# Eval("ProductID") %>'>
+                    Thêm vào giỏ hàng
+                                                    </asp:LinkButton>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+
                         </div>
 
                     </div>

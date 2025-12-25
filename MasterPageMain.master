@@ -1,0 +1,622 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageMain.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Jquery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+
+    <!-- Library -->
+    <link rel="stylesheet" href="assets/css/nivoSlider.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+
+    <!-- Css style -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon/apple-favicon.png" type="image/x-icon">
+
+    <!--Jquery import -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <%--<title>Apple Store</title>--%>
+
+    <!--Head others page-->
+    <asp:ContentPlaceHolder ID="HomeViewPageHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder ID="DetailProductViewPageHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="app">
+            <!-- Header -->
+            <header id="header">
+                <!-- Top header -->
+                <div class="header-top">
+                    <div class="container">
+
+                        <div class="row">
+
+                            <div class="col-6">
+                                <div class="header-menu-left">
+                                    <div class="welcome-text">
+                                        Welcome <span class="text-blue separate">apple store</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="header-menu-right">
+                                    <nav>
+                                        <ul class="controls-user">
+                                            <li class="controls-item">
+                                                <a href="LoginViewPage.aspx" class="controls-link separate">Đăng nhập</a>
+                                            </li>
+
+                                            <li class="controls-item separate">
+                                                <a href="RegisterViewPage.aspx" class="controls-link">Đăng ký</a>
+                                            </li>
+
+                                            <li class="controls-item">
+                                                <a href="#" class="controls-link">Quên mật khẩu?</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Header search middle -->
+                <div class="header-middle">
+                    <div class="container">
+
+                        <div class="row ">
+
+                            <div class="col-12">
+
+                                <div class="logo-app">
+                                    <img src="assets/img/logo_app/LogoApple.png" alt="" class="logo-img">
+                                </div>
+
+                                <div class="header-search">
+                                    <select name="category" class="select-category">
+                                        <option value="0">Danh mục</option>
+                                        <option value="2">Macbook</option>
+                                        <option value="3">iphone 16</option>
+                                    </select>
+
+                                    <input type="text" placeholder="Nhập tên sản phẩm..." class="search-input">
+
+                                    <button class="btn-search">
+                                        <i class="bi search-icon bi-search"></i>
+                                    </button>
+                                </div>
+
+                                <div class="header-contact">
+
+                                    <div class="contact-btn">
+                                        <i class="bi contact-icon bi-telephone-fill"></i>
+                                    </div>
+
+                                    <div class="contact-content">
+                                        <h3 class="contact-buy">Ưu đãi mua web applestore giá 400k</h3>
+                                        <span class="contact-phone">Liên hệ ngay 0762884181</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <nav id="header-nav-main">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-12">
+                                <!-- Nav main -->
+                                <ul class="nav-list">
+                                    <li class="nav-item">
+                                        <a href="" class="nav-link">Trang chủ</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="" class="nav-link">danh mục sản phẩm
+                                         <i class="nav-arrow-down-icon bi bi-caret-down-fill"></i>
+                                        </a>
+
+                                        <ul class="subnav-menu">
+                                            <li class="subnav-item">
+                                                <a href="" class="subnav-link">Macbook </a>
+                                            </li>
+
+                                            <li class="subnav-item">
+                                                <a href="" class="subnav-link">iphone 16 </a>
+                                            </li>
+
+                                            <li class="subnav-item">
+                                                <a href="" class="subnav-link">iphone 16 pro </a>
+                                            </li>
+
+                                            <li class="subnav-item">
+                                                <a href="" class="subnav-link">iphone 16 plus </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="" class="nav-link">Liên hệ</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="" class="nav-link">Giới thiệu</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="" class="nav-link">Điều khoản sử dụng website</a>
+                                    </li>
+
+                                </ul>
+
+                                <!-- Cart -->
+                                <div class="shopping-cart">
+                                    <p class="cart-text">
+                                        <i class="cart-icon bi bi-cart-fill"></i>
+                                        Giỏ hàng
+                                         <span class="cart-quantity">2</span>
+                                    </p>
+
+                                    <!-- List product in cart -->
+                                    <ul class="cart-product-list">
+                                        <li class="cart-product-item">
+                                            <a href="#" class="cart-product-link">
+                                                <div class="cart-product-img">
+                                                    <img src="assets/img/product_img/iphone16/iphone-16-128gb-black.png" alt="">
+                                                </div>
+
+                                                <div class="cart-product-content">
+                                                    <span class="cart-product-quantity">Số lượng mua: 
+                                                    <span class="cart-product-number">2</span>
+                                                    </span>
+
+                                                    <span class="cart-product-name">iphone 16 plus 256GB black</span>
+                                                    <span class="cart-product-price-wrap">Đơn giá : 
+                                                     <span class="cart-product-price">28.590.000<sup>đ</sup></span>
+                                                    </span>
+                                                </div>
+
+                                            </a>
+                                        </li>
+
+                                        <li class="cart-product-item">
+                                            <a href="#" class="cart-product-link">
+                                                <div class="cart-product-img">
+                                                    <img src="assets/img/product_img/iphone16/iphone-16-128gb-black.png" alt="">
+                                                </div>
+
+                                                <div class="cart-product-content">
+                                                    <span class="cart-product-quantity">Số lượng mua: 
+                                                    <span class="cart-product-number">5</span>
+                                                    </span>
+
+                                                    <span class="cart-product-name">iphone 16 plus 256GB black</span>
+                                                    <span class="cart-product-price-wrap">Đơn giá : 
+                                                    <span class="cart-product-price">28.590.000<sup>đ</sup></span>
+                                                    </span>
+                                                </div>
+
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                    <!-- Total price product area -->
+                                    <div class="total-price-block">
+                                        <p class="total-price-text">
+                                            <span>Tổng</span>
+                                            <span class="total-price-product">28.590.000<sup>đ</sup></span>
+                                        </p>
+
+                                        <div class="payment-product">
+                                            <button class="payment-btn">
+                                                Thanh toán
+                                             <i class="bi bi-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+
+            <!-- Home page content -->
+            <asp:ContentPlaceHolder ID="HomeViewPageContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <!-- Detail Product page content -->
+            <asp:ContentPlaceHolder ID="DetailProductViewPageContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <!-- Cart page content -->
+            <asp:ContentPlaceHolder ID="CartViewPageContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <asp:Repeater ID="Repeater1" runat="server">
+                
+            </asp:Repeater>
+
+
+            <!-- Brand list area -->
+            <div class="brand-client-area ">
+                <div class="container">
+                    <div class="row">
+                        <div class="brand-client-row">
+                            <div class="center-title-area">
+                                <h3 class="center-title">Thương hiệu & nhãn hàng</h3>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="brand-list-area">
+                                        <div class="owl-carousel owl-theme brand-carousel">
+                                            <div class="brand-item">
+                                                <a href="" class="brand-link">
+                                                    <img src="assets/img/brands/Ezviz.jpg" alt="" class="brand-img">
+                                                </a>
+                                            </div>
+
+                                            <div class="brand-item">
+                                                <a href="" class="brand-link">
+                                                    <img src="assets/img/brands/Imou.png" alt="" class="brand-img">
+                                                </a>
+                                            </div>
+
+                                            <div class="brand-item">
+                                                <a href="" class="brand-link">
+                                                    <img src="assets/img/brands/hikvision1.jpg" alt="" class="brand-img">
+                                                </a>
+                                            </div>
+
+                                            <div class="brand-item">
+                                                <a href="" class="brand-link">
+                                                    <img src="assets/img/brands/Sony.png" alt="" class="brand-img">
+                                                </a>
+                                            </div>
+
+                                            <div class="brand-item">
+                                                <a href="" class="brand-link">
+                                                    <img src="assets/img/brands/Panasonic.png " alt="" class="brand-img">
+                                                </a>
+                                            </div>
+
+                                            <div class="brand-item">
+                                                <a href="" class="brand-link">
+                                                    <img src="assets/img/brands/Dahua-logo.jpg" alt="" class="brand-img">
+                                                </a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="nav-carouse-controls"></div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features area  -->
+            <div class="features-area ">
+                <div class="container">
+                    <div class="row gx-5">
+                        <!-- Feature item -->
+                        <div class="col-3">
+                            <div class="feature-item">
+                                <div class="feature-wrap">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-rocket-takeoff-fill"></i>
+                                    </div>
+
+                                    <div class="feature-content">
+                                        <h3 class="feature-label">Miễn phí giao hàng</h3>
+                                        <span>Trong bán kính 5 KM</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-3">
+                            <div class="feature-item">
+                                <div class="feature-wrap">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-umbrella-fill"></i>
+                                    </div>
+
+                                    <div class="feature-content">
+                                        <h3 class="feature-label">Hỗ trợ 24/7</h3>
+                                        <span>Luôn luôn hổ trợ bạn</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-3">
+                            <div class="feature-item">
+                                <div class="feature-wrap">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-calendar-fill"></i>
+                                    </div>
+
+                                    <div class="feature-content">
+                                        <h3 class="feature-label">Bán trong dịp lễ</h3>
+                                        <span>Sẵn sàng chào đón bạn</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-3">
+                            <div class="feature-item">
+                                <div class="feature-wrap">
+                                    <div class="feature-icon">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                    </div>
+
+                                    <div class="feature-content">
+                                        <h3 class="feature-label">Đổi trả trong 30 ngày</h3>
+                                        <span>Nếu lỗi sản phẩm</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Footer area -->
+            <div class="footer-area ">
+                <div class="container" style="height: inherit;">
+                    <div class="row" style="height: 100%;">
+                        <!-- Footer left area -->
+                        <div class="col-3 g-0">
+                            <div class="footer-area-left">
+                                <div class="about-us-area">
+                                    <a href="" class="about-link">
+                                        <img src="assets/img/logo_app/LogoAppleWhite.png" alt="" class="footer-logo-store">
+                                    </a>
+
+                                    <div class="about-us-content">
+                                        <p>
+                                            Công ty cổ phần Apple nỗ lực làm Quý Khách hàng hài lòng trên cơ sở hiểu biết sâu sắc và đáp ứng một cách tốt nhất nhu cầu của Quý Khách hàng với lòng tận tụy và năng lực không ngừng được nâng cao.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Follow us area -->
+                                <div class="follow-us-area">
+                                    <h3 class="follow-label">follow us</h3>
+                                    <div class="follow-socials-area">
+                                        <div class="follow-social-item">
+                                            <a href="" class="follow-social-link">
+                                                <i class="bi follow-social-icon bi-facebook"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="follow-social-item">
+                                            <a href="" class="follow-social-link">
+                                                <i class="bi follow-social-icon bi-pinterest"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="follow-social-item">
+                                            <a href="" class="follow-social-link">
+                                                <i class="bi follow-social-icon bi-youtube"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="follow-social-item">
+                                            <a href="" class="follow-social-link">
+                                                <i class="bi follow-social-icon bi-tiktok"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Footer right area -->
+                        <div class="col-9 g-0">
+                            <div class="footer-area-right">
+                                <div class="row">
+                                    <!--About Category store -->
+                                    <div class="col-4">
+                                        <div class="category-area">
+                                            <h3 class="footer-title">Danh mục</h3>
+
+                                            <ul class="footer-right-list">
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Macbook</a>
+                                                </li>
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Iphone 16</a>
+                                                </li>
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">iphone 16 pro</a>
+                                                </li>
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">iphone 16 plus</a>
+                                                </li>
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">iphone 16 pro max</a>
+                                                </li>
+
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Ipad</a>
+                                                </li>
+
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Watch</a>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- About us area -->
+                                    <div class="col-4">
+                                        <div class="about-policy-us-area">
+                                            <h3 class="footer-title">Về chúng tôi</h3>
+
+                                            <ul class="footer-right-list">
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Chính sách thanh toán</a>
+                                                </li>
+
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Điều khoản sử dụng website</a>
+                                                </li>
+
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Chính sách bảo mật</a>
+                                                </li>
+
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Giới thiệu</a>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Suport contact area-->
+                                    <div class="col-4">
+                                        <div class="contact-suport-area">
+                                            <h3 class="footer-title">Hỗ trợ khách hàng</h3>
+
+                                            <ul class="footer-right-list">
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Tổng đài hỗ trợ kỹ thuật: 0345603733</a>
+                                                </li>
+
+                                                <li class="footer-right-item">
+                                                    <a href="" style="text-transform: unset;" class="footer-right-link">Email: duongminhtri711@gmail.com</a>
+                                                </li>
+
+                                                <li class="footer-right-item">
+                                                    <a href="" class="footer-right-link">Phường 6, Cao Lãnh, Đồng Tháp, Việt Nam</a>
+                                                </li>
+
+                                            </ul>
+
+
+                                        </div>
+
+                                        <!-- Map gogle area -->
+                                        <div class="footer-right-map">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29102.16425082591!2d105.62254213567633!3d10.43051599065494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a64dd894a611d%3A0x5a29dca0586f48a4!2zcGjGsOG7nW5nIDYsIFRwLiBDYW8gTMOjbmgsIMSQ4buTbmcgVGjDoXAsIFZp4buHdCBOYW0!5e1!3m2!1svi!2s!4v1732222908676!5m2!1svi!2s" width="600" height="450" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+
+                                        <div class="payment-methods">
+                                            <img src="assets/img/payment_img/payment.png" alt="" class="payment-img">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Coppyright us -->
+            <div class="coppyright-area ">
+                <div class="container" style="height: 100%;">
+                    <div class="row" style="height: 100%;">
+                        <div class="col-12">
+                            <p class="copyright-text">
+                                Copyright ©
+                  <span class="copyright-year">2024
+                  </span>
+
+                                <a href="#" class="copyright-link">apple store</a>
+                                All Rights Reserved
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+
+    <!-- Script here -->
+    <script src="assets/js/jquery.nivo.slider.js"></script>
+    <script src="assets/js/owl.carousel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="assets/js/main.js"></script>
+    <asp:ContentPlaceHolder ID="DetailProductViewScript" runat="server"></asp:ContentPlaceHolder>
+
+</body>
+</html>

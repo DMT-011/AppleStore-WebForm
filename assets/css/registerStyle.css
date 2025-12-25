@@ -1,0 +1,107 @@
+﻿body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%);
+    background-blend-mode: screen;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.register-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 560px;
+    height: 100%;
+}
+
+.register-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.logo img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: #636e72;
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.form-full-width {
+    grid-column: span 2;
+}
+
+input:focus {
+    outline: none;
+    border-color: #434343;
+    box-shadow: 0 0 2px #434343;
+}
+
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    background: #000;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+    .btn:hover {
+        opacity: 0.8;
+    }
+
+.signin-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #636e72;
+}
+
+    .signin-link a {
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+        .signin-link a:hover {
+            text-decoration: underline;
+        }

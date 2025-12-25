@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="16ee81d56bf745ca83af4246da1938c2" Name="Diagram1">
+        <EntityTypeShape EntityType="AppleStoreDBModel.CartItem" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.Cart" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.Category" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.Image" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.OrderDetail" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.Order" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.Product" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.Role" Width="1.5" PointX="1.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.Slider" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.User" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="AppleStoreDBModel.FK__CartItems__CartI__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreDBModel.FK__CartItems__Produ__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreDBModel.FK__Carts__UserID__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreDBModel.FK__Products__Catego__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreDBModel.FK__Images__ProductI__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreDBModel.FK__OrderDeta__Order__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreDBModel.FK__OrderDeta__Produ__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreDBModel.FK__Orders__UserID__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleStoreDBModel.FK__Users__RoleID__59FA5E80" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AppleStoreDBModel.sysdiagram" Width="1.5" PointX="8.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
